@@ -29,7 +29,7 @@ public void gameStatus() { // this method calls the status of play on a game
 			System.out.println("wrong input");
 		} else if (hv == sd && df == 1) {
 			System.out.println("won in sudden death");
-		} else if (hv == sp && df <= 2) {
+		} else if (hv == sp && df >= 2) {
 			System.out.println(side + "side won " + hv + "-" + lv);
 		} else if (hv >= sp && df == 2) {
 			System.out.println(side + "side won in setting " + hv + "-" + lv);
