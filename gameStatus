@@ -1,0 +1,44 @@
+public void gameStatus() { // this method calls the status of play on a game
+		String side = new String();
+
+		int ls = this.leftsideScore;
+		int rs = this.rightsideScore;
+		int sp = this.SetPoint;
+		int sd = this.SuddenDeathPoint;
+		int hv = 0; // higher value
+		int lv = 0; // lower value
+
+		boolean draw = false;
+		int df = 0;
+
+		// HIGHEST, LOWEST , DRAWING
+		if (ls > rs) {
+			hv = ls;
+			lv = rs;
+			side = "left";
+		} else if (rs > ls) {
+			hv = rs;
+			lv = ls;
+			side = "right";
+		} else
+			draw = true;
+
+		df = hv - lv;
+
+		if (hv > sd) {
+			System.out.println("wrong input");
+		} else if (hv == sd) {
+			System.out.println("won in sudden death");
+		} else if (hv == sp && df <= 2) {
+			System.out.println(side + "side won " + hv + "-" + lv);
+		} else if (hv >= sp && df == 2) {
+			System.out.println(side + "side won in setting " + hv + "-" + lv);
+		} else if (hv >= (sp - 1) && df == 1) {
+			System.out.println("set point to "+side + "side " + hv + "-" + lv);
+		} else if (hv > lv && hv < sp) {
+			System.out.println(side + "side is ahead by " + hv + " to " + lv);
+		} else if (draw)
+			System.out.println("Both sides are drawing at " + ls + " all.");
+		else
+			System.out.println("Wrong input");
+	}
